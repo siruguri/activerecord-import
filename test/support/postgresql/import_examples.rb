@@ -1,4 +1,5 @@
 # encoding: UTF-8
+
 def should_support_postgresql_import_functionality
   describe "#supports_imports?" do
     it "should support import" do
@@ -17,7 +18,16 @@ def should_support_postgresql_import_functionality
         assert_equal 1, result.num_inserts
       end
     end
-
+    
+    describe "unique key conflicts" do
+      let (:existing_project) { Build(:project) }
+      it "ignores them entirely" do
+        existing_project.save
+        result = Project.import [Build(:project, name: 'Project 0')], on_conflict_do_nothing: true
+        assert_equal 0, result.num_inserts
+      end
+    end
+    
     describe "importing objects with associations" do
 
       let(:new_topics) { Build(num_topics, :topic_with_book) }

@@ -3,6 +3,10 @@ FactoryGirl.define do
   sequence(:chapter_title) {|n| "Chapter #{n}"}
   sequence(:end_note) {|n| "Endnote #{n}"}
 
+  factory(:project) do
+    sequence(:name) {|n| "Project #{n}"}
+  end
+
   factory :group do
     sequence(:order) { |n| "Order #{n}" }
   end

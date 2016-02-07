@@ -140,8 +140,9 @@ class ActiveRecord::Base
     #
     # == Usage
     #  Model.import array_of_models
+    #  Model.import array_of_models, hash of options
     #  Model.import column_names, array_of_values
-    #  Model.import column_names, array_of_values, options
+    #  Model.import column_names, array_of_values, hash of options
     #
     # ==== Model.import array_of_models
     #

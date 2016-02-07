@@ -37,6 +37,11 @@ platforms :mri_19 do
   gem "debugger"
 end
 
+platforms :mri_22 do
+  gem "pry"
+  gem 'pry-byebug'
+end
+
 version = ENV['AR_VERSION'] || "3.2"
 
 if version > "4.0"

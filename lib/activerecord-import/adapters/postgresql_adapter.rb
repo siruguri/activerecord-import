@@ -28,6 +28,12 @@ module ActiveRecord::Import::PostgreSQLAdapter
     end
   end
 
+  # Returns a generated ON CONFLICT DO NOTHING statement given the table passed
+  # in +args+.
+  def sql_for_on_conflict_update_nothing( table_name ) # :nodoc:
+    sql = " ON CONFLICT (name) DO NOTHING"
+  end
+
   # Returns a generated ON DUPLICATE KEY UPDATE statement given the passed
   # in +args+.
   def sql_for_on_duplicate_constraint_update( table_name, options = {} ) # :nodoc:

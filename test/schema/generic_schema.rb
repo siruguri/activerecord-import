@@ -7,7 +7,7 @@ ActiveRecord::Schema.define do
 
   create_table :group, :force => true do |t|
     t.column :order, :string
-    t.timestamps
+    t.timestamps null: true
   end
 
   create_table :topics, :force=>true do |t|
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define do
   end
 
   create_table :projects, :force=>true do |t|
-    t.column :name, :string
+    t.column :name, :string, unique: true
     t.column :type, :string
   end
 
